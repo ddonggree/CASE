@@ -546,7 +546,10 @@ document.body.addEventListener('click',e=>{
   else if(a==='home')S.view='home';
   else if(a==='to-pick')S.view='pick';
   else if(a==='back-setup')S.view='setup';
-  else if(a==='pick'){S.picked=+b.dataset.id;S.stage=0;S.maxStage=0;S.sub=0;S.view='detail';window.scrollTo(0,0);}
+  else if(a==='pick'){S.picked=+b.dataset.id;S.stage=0;S.maxStage=0;S.sub=0;S.view='detail';window.scrollTo(0,0);
+    /* ▼ 설계 앱으로 학생 넘겨주기 (연동) */
+    try{var _c=cur();if(_c)localStorage.setItem('caseHandoff',JSON.stringify({type:_c.t,tags:_c.tg||[],diagnosis:_c.d+(_c.coNon?' — '+_c.coNon:'')}));}catch(_e){}
+  }
   else if(a==='exit'){S.view='pick';window.scrollTo(0,0);}
   else if(a==='step'){const i=+b.dataset.idx;if(i<=S.maxStage)S.stage=i;}
   else if(a==='sub')S.sub=+b.dataset.idx;
